@@ -16,7 +16,7 @@ export default class Main extends Component<{}> {
             <div>
                 <img src={ logo } className="App-logo" alt="React Logo"/>
                 <span> I am the Senate! </span>
-                <BlockArea/>
+                <BlockArea divName="blockArea"/>
             </div>
         );
     }
