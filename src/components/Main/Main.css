@@ -55,3 +55,7 @@ span {
     width: 100%;
     height: 500px;
 }
+
+#canvas {
+    border: 1px solid lightgrey;
+}
