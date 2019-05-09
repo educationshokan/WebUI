@@ -17,3 +17,36 @@
 span {
     font-weight: bold;
 }
+
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.card {
+    width: calc(50% - 12px);
+    height: auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid lightgrey;
+}
+
+.card .card-icon {
+    margin: 5px;
+    height: 70px;
+}
+
+.card h4 {
+    margin: 5px;
+}
+
+.two-column-layout {
+    padding: 5px;
+}
