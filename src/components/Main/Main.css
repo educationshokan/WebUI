@@ -50,3 +50,8 @@ span {
 .two-column-layout {
     padding: 5px;
 }
+
+#block {
+    width: 100%;
+    height: 500px;
+}

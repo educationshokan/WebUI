@@ -52,7 +52,7 @@ export default class FilesWrapper extends Component<FilesWrapperProps, FilesWrap
 
     render(): ReactNode {
         return (
-            <div className="wrapper">
+            <div className="cards-wrapper">
                 <h1>Mis Archivos</h1>
                 <TwoColumnLayout ids={ this.state.filesIds } action={ FilesWrapper.retrieveFile }/>
             </div>

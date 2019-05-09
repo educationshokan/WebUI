@@ -6,6 +6,7 @@ import BlockArea from "../BlockArea/BlockArea";
 import Card from "../Card/Card";
 import TwoColumnLayout from "../TwoColumnLayout/TwoColumnLayout";
 import FilesWrapper from "../FilesWrapper/FilesWrapper";
+import BlockWrapper from "../BlockWrapper/BlockWrapper";
 
 
 export default class Main extends Component<{}> {
@@ -17,7 +18,7 @@ export default class Main extends Component<{}> {
     render(): ReactNode {
         return (
             <div>
-                <FilesWrapper/>
+                <BlockWrapper/>
             </div>
         );
     }
