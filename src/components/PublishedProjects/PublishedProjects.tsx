@@ -4,8 +4,6 @@ import CardsWrapper from "../../interfaces/CardsWrapper";
 import CardData from "../../interfaces/CardData";
 import SuccessResponse from "../../interfaces/SuccessResponse";
 import ProjectMetadata from "../../interfaces/ProjectMetadata";
-import FileMetadata from "../../interfaces/FileMetadata";
-import TwoColumnLayout from "../../shared/components/TwoColumnLayout/TwoColumnLayout";
 import ListLayout from "../../shared/components/ListLayout/ListLayout";
 
 interface PublishedProjectsProps { }
