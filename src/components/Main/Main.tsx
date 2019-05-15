@@ -1,13 +1,7 @@
 import { Component, ReactNode } from "react";
 import * as React from "react";
 import "./Main.css";
-import logo from "./logo.svg";
-import FilesWrapper from "../FilesWrapper/FilesWrapper";
-import BlockWrapper from "../BlockWrapper/BlockWrapper";
-import SketchWrapper from "../SketchWrapper/SketchWrapper";
-import ProjectsWrapper from "../ProjectsWrapper/ProjectsWrapper";
-import ProjectFilesWrapper from "../ProjectFilesWrapper/ProjectFilesWrapper";
-import PublishedProjects from "../PublishedProjects/PublishedProjects";
+import Home from "../Home/Home";
 
 
 export default class Main extends Component<{}> {
@@ -19,7 +13,7 @@ export default class Main extends Component<{}> {
     render(): ReactNode {
         return (
             <div>
-                <PublishedProjects/>
+                <Home/>
             </div>
         );
     }
