@@ -3,38 +3,45 @@ import * as React from "react";
 import TwoColumnLayout from "../TwoColumnLayout/TwoColumnLayout";
 import SuccessResponse from "../../interfaces/SuccessResponse";
 import CardData from "../../interfaces/CardData";
-import FileMetadata from "../../interfaces/FileMetadata";
 import CardsWrapper from "../../interfaces/CardsWrapper";
+import ProjectData from "../../interfaces/ProjectData";
+import FileMetadata from "../../interfaces/FileMetadata";
 
-interface  FilesWrapperProps { }
+interface ProjectFilesWrapperProps {
+    projectId: string
+}
 
-interface FilesWrapperState {
+interface ProjectFilesWrapperState {
+    name: string
     filesIds: string[]
 }
 
-export default class FilesWrapper extends Component<FilesWrapperProps, FilesWrapperState> implements CardsWrapper{
+export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperProps, ProjectFilesWrapperState> implements CardsWrapper {
 
-    constructor(props: FilesWrapperProps){
+    constructor(props: ProjectFilesWrapperProps) {
         super(props);
         this.state = {
+            name: "No name",
             filesIds: []
         }
     }
 
     async componentWillMount() {
-        const res = await fetch("http://educationshokan.ddns.net:8080/media", {
+        const res = await fetch(`http://educationshokan.ddns.net:8080/project/${this.props.projectId}`, {
             method: "GET"
         });
 
         const {status, data}: SuccessResponse = await res.json();
         console.log(data);
-        const ids = data as Array<string>;
+        const project = data as ProjectData;
         this.setState({
-            filesIds: ids
+            name: project.name,
+            filesIds: project.files
         });
     }
 
-    async retrieveCardData(id: string): Promise<CardData>  {
+
+    async retrieveCardData(id: string): Promise<CardData> {
         const res = await fetch(`http://educationshokan.ddns.net:8080/media/${id}`, {
             method: "GET"
         });
@@ -52,7 +59,7 @@ export default class FilesWrapper extends Component<FilesWrapperProps, FilesWrap
     render(): ReactNode {
         return (
             <div className="cards-wrapper">
-                <h1>Mis Archivos</h1>
+                <h1>Proyecto { this.state.name }</h1>
                 <TwoColumnLayout ids={ this.state.filesIds } action={ this.retrieveCardData }/>
             </div>
         );

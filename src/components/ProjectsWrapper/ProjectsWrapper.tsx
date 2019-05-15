@@ -6,11 +6,10 @@ import CardData from "../../interfaces/CardData";
 import CardsWrapper from "../../interfaces/CardsWrapper";
 import ProjectMetadata from "../../interfaces/ProjectMetadata";
 
-class ProjectsWrapperProps {
-}
+interface ProjectsWrapperProps { }
 
-class ProjectsWrapperState {
-    projectsIds!: string[];
+interface ProjectsWrapperState {
+    projectsIds: string[];
 }
 
 export default class ProjectsWrapper extends Component<ProjectsWrapperProps, ProjectsWrapperState> implements CardsWrapper{

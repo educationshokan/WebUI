@@ -8,6 +8,8 @@ import TwoColumnLayout from "../TwoColumnLayout/TwoColumnLayout";
 import FilesWrapper from "../FilesWrapper/FilesWrapper";
 import BlockWrapper from "../BlockWrapper/BlockWrapper";
 import SketchWrapper from "../SketchWrapper/SketchWrapper";
+import ProjectsWrapper from "../ProjectsWrapper/ProjectsWrapper";
+import ProjectFilesWrapper from "../ProjectFilesWrapper/ProjectFilesWrapper";
 
 
 export default class Main extends Component<{}> {
@@ -19,7 +21,7 @@ export default class Main extends Component<{}> {
     render(): ReactNode {
         return (
             <div>
-                <SketchWrapper/>
+                <ProjectFilesWrapper projectId="1"/>
             </div>
         );
     }
