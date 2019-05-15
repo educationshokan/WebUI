@@ -1,18 +1,18 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
-import CardData from "../../interfaces/CardData";
+import CardData from "../../../interfaces/CardData";
 
-interface CardProps {
+interface ListElementProps {
     id: string,
     action: (id: string) => Promise<CardData>
 }
 
-interface CardState extends CardData { }
+interface ListElementState extends CardData { }
 
 
-export default class Card extends Component<CardProps, CardState> {
+export default class ListElement extends Component<ListElementProps, ListElementState> {
 
-    constructor(props: CardProps) {
+    constructor(props: ListElementProps) {
         console.log(props);
         super(props);
 
@@ -32,11 +32,9 @@ export default class Card extends Component<CardProps, CardState> {
 
     render(): ReactNode {
         return (
-            <div className="card">
-                <div className="card-icon"/>
+            <div className="list-layout-el">
                 <h4>{ this.state.name }</h4>
-                <h2>{ this.state.type }</h2>
-                <p>{ this.state.desc }</p>
+                <span>{ this.state.desc }</span>
             </div>
         );
     }

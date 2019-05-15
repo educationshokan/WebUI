@@ -1,6 +1,6 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
-import TwoColumnLayout from "../TwoColumnLayout/TwoColumnLayout";
+import TwoColumnLayout from "../../shared/components/TwoColumnLayout/TwoColumnLayout";
 import BlockArea from "../BlockArea/BlockArea";
 
 interface BlockWrapperProps {

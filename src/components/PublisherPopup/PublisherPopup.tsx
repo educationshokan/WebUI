@@ -1,21 +1,24 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
-import TwoColumnLayout from "../../shared/components/TwoColumnLayout/TwoColumnLayout";
-import SuccessResponse from "../../interfaces/SuccessResponse";
-import CardData from "../../interfaces/CardData";
-import FileMetadata from "../../interfaces/FileMetadata";
 import CardsWrapper from "../../interfaces/CardsWrapper";
+import CardData from "../../interfaces/CardData";
+import SuccessResponse from "../../interfaces/SuccessResponse";
+import FileMetadata from "../../interfaces/FileMetadata";
+import CheckListLayout from "../../shared/components/CheckListLayout/CheckListLayout";
 
-interface  FilesWrapperProps { }
+interface PublisherWrapperProps {
+    projectName: string
+}
 
-interface FilesWrapperState {
+interface PublisherWrapperState {
     filesIds: string[]
 }
 
-export default class FilesWrapper extends Component<FilesWrapperProps, FilesWrapperState> implements CardsWrapper{
+export default class PublisherPopup extends Component<PublisherWrapperProps, PublisherWrapperState> implements CardsWrapper {
 
-    constructor(props: FilesWrapperProps){
+    constructor(props: PublisherWrapperProps) {
         super(props);
+
         this.state = {
             filesIds: []
         }
@@ -51,11 +54,13 @@ export default class FilesWrapper extends Component<FilesWrapperProps, FilesWrap
 
     render(): ReactNode {
         return (
-            <div className="cards-wrapper">
-                <h1>Mis Archivos</h1>
-                <TwoColumnLayout ids={ this.state.filesIds } action={ this.retrieveCardData }/>
+            <div className="publish-wrapper">
+                <h3>Proyecto {this.props.projectName }</h3>
+                <CheckListLayout ids={ this.state.filesIds } action={ this.retrieveCardData }/>
             </div>
         );
     }
+
+
 
 }

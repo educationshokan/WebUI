@@ -1,29 +1,31 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
-import TwoColumnLayout from "../../shared/components/TwoColumnLayout/TwoColumnLayout";
-import SuccessResponse from "../../interfaces/SuccessResponse";
-import CardData from "../../interfaces/CardData";
 import CardsWrapper from "../../interfaces/CardsWrapper";
+import CardData from "../../interfaces/CardData";
+import SuccessResponse from "../../interfaces/SuccessResponse";
 import ProjectMetadata from "../../interfaces/ProjectMetadata";
+import FileMetadata from "../../interfaces/FileMetadata";
+import TwoColumnLayout from "../../shared/components/TwoColumnLayout/TwoColumnLayout";
+import ListLayout from "../../shared/components/ListLayout/ListLayout";
 
-interface ProjectsWrapperProps { }
+interface PublishedProjectsProps { }
 
-interface ProjectsWrapperState {
-    projectsIds: string[];
+interface PublishedProjectsState {
+    projectsIds: string[]
 }
 
-export default class ProjectsWrapper extends Component<ProjectsWrapperProps, ProjectsWrapperState> implements CardsWrapper{
+export default class PublishedProjects extends Component<PublishedProjectsProps, PublishedProjectsState> implements CardsWrapper{
 
-    constructor(props: ProjectsWrapperProps) {
+
+    constructor(props: PublishedProjectsProps) {
         super(props);
-
         this.state = {
             projectsIds: []
         }
     }
 
     async componentWillMount() {
-        const res = await fetch("http://educationshokan.ddns.net:8080/projects", {
+        const res = await fetch(`http://educationshokan.ddns.net:8080/projects`, {
             method: "GET"
         });
 
@@ -34,6 +36,7 @@ export default class ProjectsWrapper extends Component<ProjectsWrapperProps, Pro
             projectsIds: ids
         });
     }
+
 
     async retrieveCardData(id: string): Promise<CardData> {
         const res = await fetch(`http://educationshokan.ddns.net:8080/project/${id}`, {
@@ -53,8 +56,8 @@ export default class ProjectsWrapper extends Component<ProjectsWrapperProps, Pro
     render(): ReactNode {
         return (
             <div className="cards-wrapper">
-                <h1>Mis Archivos</h1>
-                <TwoColumnLayout ids={ this.state.projectsIds } action={ this.retrieveCardData }/>
+                <h1>Proyectos Publicados</h1>
+                <ListLayout ids={ this.state.projectsIds } action={ this.retrieveCardData }/>
             </div>
         );
     }

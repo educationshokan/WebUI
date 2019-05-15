@@ -1,5 +1,6 @@
 export default interface ProjectMetadata {
     id: string,
-    projectName: string,
-    description: string
+    name: string,
+    description: string,
+    files: string[]
 }

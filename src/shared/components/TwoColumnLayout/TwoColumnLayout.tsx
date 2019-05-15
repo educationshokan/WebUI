@@ -1,7 +1,7 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
 import Card from "../Card/Card";
-import CardData from "../../interfaces/CardData";
+import CardData from "../../../interfaces/CardData";
 
 interface TwoColumnLayoutProps {
     ids: Array<string>

@@ -1,11 +1,11 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
-import TwoColumnLayout from "../TwoColumnLayout/TwoColumnLayout";
+import TwoColumnLayout from "../../shared/components/TwoColumnLayout/TwoColumnLayout";
 import SuccessResponse from "../../interfaces/SuccessResponse";
 import CardData from "../../interfaces/CardData";
 import CardsWrapper from "../../interfaces/CardsWrapper";
-import ProjectData from "../../interfaces/ProjectData";
 import FileMetadata from "../../interfaces/FileMetadata";
+import ProjectMetadata from "../../interfaces/ProjectMetadata";
 
 interface ProjectFilesWrapperProps {
     projectId: string
@@ -33,7 +33,7 @@ export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperPr
 
         const {status, data}: SuccessResponse = await res.json();
         console.log(data);
-        const project = data as ProjectData;
+        const project = data as ProjectMetadata;
         this.setState({
             name: project.name,
             filesIds: project.files
@@ -47,12 +47,12 @@ export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperPr
         });
 
         const {status, data}: SuccessResponse = await res.json();
-        const cardMetadata = data as FileMetadata;
+        const file = data as FileMetadata;
 
         return {
-            name: cardMetadata.fileName,
-            type: cardMetadata.mimeType,
-            desc: cardMetadata.description
+            name: file.fileName,
+            type: file.mimeType,
+            desc: file.description
         };
     }
 
