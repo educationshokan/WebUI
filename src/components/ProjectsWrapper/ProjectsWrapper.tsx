@@ -53,7 +53,7 @@ export default class ProjectsWrapper extends Component<ProjectsWrapperProps, Pro
     render(): ReactNode {
         return (
             <div className="cards-wrapper">
-                <h1>Mis Archivos</h1>
+                <h1>Mis Proyectos</h1>
                 <TwoColumnLayout ids={ this.state.projectsIds } action={ this.retrieveCardData }/>
             </div>
         );

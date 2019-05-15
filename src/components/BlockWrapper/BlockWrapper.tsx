@@ -1,8 +1,9 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
-import BlockArea from "../BlockArea/BlockArea";
+import BlockArea from "../../shared/components/BlockArea/BlockArea";
+import { RouteComponentProps } from "react-router";
 
-interface BlockWrapperProps {
+interface BlockWrapperProps extends RouteComponentProps<any>{
 
 }
 

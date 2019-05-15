@@ -1,8 +1,9 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
-import SketchArea from "../SketchArea/SketchArea";
+import SketchArea from "../../shared/components/SketchArea/SketchArea";
+import { RouteComponentProps } from "react-router";
 
-interface SketchWrapperProps {
+interface SketchWrapperProps extends RouteComponentProps<any>{
 
 }
 

@@ -6,8 +6,11 @@ import CardData from "../../interfaces/CardData";
 import CardsWrapper from "../../interfaces/CardsWrapper";
 import FileMetadata from "../../interfaces/FileMetadata";
 import ProjectMetadata from "../../interfaces/ProjectMetadata";
+import { RouteComponentProps } from "react-router";
 
-interface ProjectFilesWrapperProps {
+type UrlParam = {name: string};
+
+interface ProjectFilesWrapperProps extends RouteComponentProps<UrlParam> {
     projectId: string
 }
 
