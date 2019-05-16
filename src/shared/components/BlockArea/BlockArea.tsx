@@ -49,6 +49,7 @@ export default class BlockArea extends Component<BlockAreaProps, BlockAreaState>
         const url = `http://localhost:8080/publish/<id>/${mediaFile.id}`;
         switch (mediaFile.mimeType) {
             case "image/jpg":
+            case "image/png":
                 return `<img src="${url}" alt=""/>`;
             case "audio/mp3":
             case "audio/mpeg":

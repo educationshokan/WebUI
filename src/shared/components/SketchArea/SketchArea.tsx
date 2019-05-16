@@ -17,7 +17,7 @@ export default class SketchArea extends Component<SketchAreaProps, SketchAreaSta
 
     private canvasArea: CanvasArea | null = null;
 
-    constructor(props: SketchAreaProps){
+    constructor(props: SketchAreaProps) {
         super(props);
     }
 

@@ -25,7 +25,7 @@ export default class PublisherPopup extends Component<PublisherWrapperProps, Pub
     }
 
     async componentWillMount() {
-        const res = await fetch("http://educationshokan.ddns.net:8080/media", {
+        const res = await fetch("http://localhost:8080/media", {
             method: "GET"
         });
 
@@ -38,7 +38,7 @@ export default class PublisherPopup extends Component<PublisherWrapperProps, Pub
     }
 
     async retrieveCardData(id: string): Promise<CardData>  {
-        const res = await fetch(`http://educationshokan.ddns.net:8080/media/${id}`, {
+        const res = await fetch(`http://localhost:8080/media/${id}`, {
             method: "GET"
         });
 

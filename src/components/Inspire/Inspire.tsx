@@ -7,7 +7,7 @@ export default class Inspire extends Component<RouteComponentProps<any>> {
 
     @boundMethod
     private goToSketch() {
-        this.props.history.push("/sketchbook");
+        this.props.history.push("/sketchbook/newProject");
     }
 
     render(): ReactNode {

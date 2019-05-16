@@ -43,7 +43,7 @@ export default class Main extends Component<{}> {
                     render={ routeProps => <Inspire {...routeProps}/> }
                 />
                 <Route
-                    exact path="/sketchbook"
+                    path="/sketchbook/:new"
                     render={ routeProps => <SketchWrapper {...routeProps}/> }
                 />
                 <Route

@@ -26,7 +26,7 @@ extends Component<ProjectsWrapperProps, ProjectsWrapperState> implements CardsWr
     }
 
     async componentWillMount() {
-        const res = await fetch("http://educationshokan.ddns.net:8080/project", {
+        const res = await fetch("http://localhost:8080/project", {
             method: "GET"
         });
         const {status, data}: SuccessResponse = await res.json();
@@ -38,7 +38,7 @@ extends Component<ProjectsWrapperProps, ProjectsWrapperState> implements CardsWr
     }
 
     async retrieveCardData(id: string): Promise<CardData> {
-        const res = await fetch(`http://educationshokan.ddns.net:8080/project/${id}`, {
+        const res = await fetch(`http://localhost:8080/project/${id}`, {
             method: "GET"
         });
         const {status, data}: SuccessResponse = await res.json();
