@@ -44,7 +44,7 @@ export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperPr
     }
 
     async componentWillMount() {
-        const res = await fetch(`http://localhost:8080/project/${this.props.match.params.name}`, {
+        const res = await fetch(`http://educationshokan.ddns.net:8080/project/${this.props.match.params.name}`, {
             method: "GET"
         });
 
@@ -59,7 +59,7 @@ export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperPr
 
 
     async retrieveCardData(id: string): Promise<CardData> {
-        const res = await fetch(`http://localhost:8080/media/${id}`, {
+        const res = await fetch(`http://educationshokan.ddns.net:8080/media/${id}`, {
             method: "GET"
         });
 

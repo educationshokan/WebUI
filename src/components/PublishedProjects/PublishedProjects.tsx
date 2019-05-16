@@ -23,7 +23,7 @@ export default class PublishedProjects extends Component<PublishedProjectsProps,
     }
 
     async componentWillMount() {
-        const res = await fetch(`http://localhost:8080/projects`, {
+        const res = await fetch(`http://educationshokan.ddns.net:8080/projects`, {
             method: "GET"
         });
 
@@ -37,7 +37,7 @@ export default class PublishedProjects extends Component<PublishedProjectsProps,
 
 
     async retrieveCardData(id: string): Promise<CardData> {
-        const res = await fetch(`http://localhost:8080/project/${id}`, {
+        const res = await fetch(`http://educationshokan.ddns.net:8080/project/${id}`, {
             method: "GET"
         });
 

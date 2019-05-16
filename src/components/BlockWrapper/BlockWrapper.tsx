@@ -28,7 +28,7 @@ export default class BlockWrapper extends Component<BlockWrapperProps, BlockWrap
     }
 
     private async uploadFile(payload: string) {
-        const res = await fetch("http://localhost:8080/media", {
+        const res = await fetch("http://educationshokan.ddns.net:8080/media", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -37,7 +37,7 @@ export default class BlockWrapper extends Component<BlockWrapperProps, BlockWrap
         });
         const location = res.headers.get("Location")!;
         const fileId = location.split("/")[location.split("/").length - 1];
-        const uploadRes = await fetch(`http://localhost:8080${location}`, {
+        const uploadRes = await fetch(`http://educationshokan.ddns.net:8080${location}`, {
             method: "POST",
             headers: { "Content-Type": "application/upload" },
             body: Buffer.from(payload)

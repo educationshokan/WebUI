@@ -33,7 +33,7 @@ export default class SketchWrapper extends Component<SketchWrapperProps, SketchW
     }
 
     private async uploadFile(bytes: string, random: number): Promise<string> {
-        const res = await fetch("http://localhost:8080/media", {
+        const res = await fetch("http://educationshokan.ddns.net:8080/media", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -42,7 +42,7 @@ export default class SketchWrapper extends Component<SketchWrapperProps, SketchW
         });
         const location = res.headers.get("Location")!;
         const fileId = location.split("/")[location.split("/").length - 1];
-        const uploadRes = await fetch(`http://localhost:8080${location}?encoded=true`, {
+        const uploadRes = await fetch(`http://educationshokan.ddns.net:8080${location}?encoded=true`, {
             method: "POST",
             headers: { "Content-Type": "application/upload" },
             body: Buffer.from(bytes)
@@ -51,7 +51,7 @@ export default class SketchWrapper extends Component<SketchWrapperProps, SketchW
     }
 
     private async newProject(fileId: string, random: number) {
-        const projRes = await fetch(`http://localhost:8080/project`, {
+        const projRes = await fetch(`http://educationshokan.ddns.net:8080/project`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -61,7 +61,7 @@ export default class SketchWrapper extends Component<SketchWrapperProps, SketchW
         });
         const loc = projRes.headers.get("Location")!;
         const projectId = loc.split("/")[loc.split("/").length - 1];
-        await fetch(`http://localhost:8080/project/${projectId}/addFile`, {
+        await fetch(`http://educationshokan.ddns.net:8080/project/${projectId}/addFile`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
