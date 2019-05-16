@@ -121,33 +121,30 @@ export default class BlockArea extends Component<BlockAreaProps, BlockAreaState>
 
     static xmlToolbar() {
         return `
-            <xml id="toolbox" style="display: none">
-                <category name="Variables" colour="100">
-                    <block type="variables_get"/>
-                    <block type="variables_set"/>
-                </category>
-                <category name="Control">
-                    <block type="controls_if"/>
-                    <block type="controls_repeat_ext"/>
-                </category>
-                <category name="Lists" colour="200">
-                    <block type="lists_create_empty"/>
-                    <block type="lists_isEmpty"/>
-                    <block type="lists_length"/>
-                    <block type="lists_create_with"/>
-                </category>
-                <category name="Other">
-                    <block type="logic_compare"/>
-                    <block type="math_number"/>
-                    <block type="math_arithmetic"/>
-                    <block type="text"/>
-                    <block type="text_print"/>
+            <id="toolbox" style="display: none">
+                <category name="Estructura">
                     <block type="Media"/>
                     <block type="html"/>
                     <block type="body"/>
                     <block type="body_attributes"/>
                     <block type="head"/>
                     <block type="title"/>
+                    <block type="script"/>
+                </category>
+                <category name="Programación" colour="100">
+                    <block type="variables_get"/>
+                    <block type="variables_set"/>
+                    <block type="controls_if"/>
+                    <block type="controls_repeat_ext"/>
+                    <block type="lists_create_empty"/>
+                    <block type="lists_isEmpty"/>
+                    <block type="lists_length"/>
+                    <block type="lists_create_with"/>
+                    <block type="logic_compare"/>
+                    <block type="math_number"/>
+                    <block type="math_arithmetic"/>
+                    <block type="text"/>
+                    <block type="text_print"/>
                 </category>
             </xml>
         `;
