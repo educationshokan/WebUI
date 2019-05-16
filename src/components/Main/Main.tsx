@@ -59,8 +59,8 @@ export default class Main extends Component<{}> {
                     render={ routeProps => <ProjectsWrapper {...routeProps}/> }
                 />
                 <Route
-                    exact path="project/:name"
-                    render={ routeProps => <ProjectFilesWrapper {...routeProps} projectId="1"/> }
+                    exact path="/project/:name"
+                    render={ routeProps => <ProjectFilesWrapper {...routeProps}/> }
                 />
                 <Route
                     exact path="/publications"
