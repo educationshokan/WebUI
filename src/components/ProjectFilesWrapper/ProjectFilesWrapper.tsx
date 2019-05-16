@@ -7,12 +7,11 @@ import CardsWrapper from "../../interfaces/CardsWrapper";
 import FileMetadata from "../../interfaces/FileMetadata";
 import ProjectMetadata from "../../interfaces/ProjectMetadata";
 import { RouteComponentProps } from "react-router";
+import { boundMethod } from "autobind-decorator";
 
 type UrlParam = {name: string};
 
-interface ProjectFilesWrapperProps extends RouteComponentProps<UrlParam> {
-    projectId: string
-}
+interface ProjectFilesWrapperProps extends RouteComponentProps<UrlParam> {}
 
 interface ProjectFilesWrapperState {
     name: string
@@ -29,8 +28,23 @@ export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperPr
         }
     }
 
+    @boundMethod
+    private goToSketch() {
+        this.props.history.push("/sketchbook/newFile");
+    }
+
+    @boundMethod
+    private goToBlocks() {
+        this.props.history.push("/blocks");
+    }
+
+    @boundMethod
+    private uploadFile() {
+
+    }
+
     async componentWillMount() {
-        const res = await fetch(`http://educationshokan.ddns.net:8080/project/${this.props.projectId}`, {
+        const res = await fetch(`http://educationshokan.ddns.net:8080/project/${this.props.match.params.name}`, {
             method: "GET"
         });
 
@@ -64,6 +78,11 @@ export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperPr
             <div className="cards-wrapper">
                 <h1>Proyecto { this.state.name }</h1>
                 <TwoColumnLayout ids={ this.state.filesIds } action={ this.retrieveCardData }/>
+                <div className="actionButtons">
+                    <button onClick={ this.goToSketch }>Hacer un dibujo</button>
+                    <button onClick={ this.goToBlocks }>Programar con bloques</button>
+                    <button onClick={ this.uploadFile }>Subir un archivo</button>
+                </div>
             </div>
         );
     }

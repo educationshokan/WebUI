@@ -46,9 +46,10 @@ export default class BlockArea extends Component<BlockAreaProps, BlockAreaState>
         const height = block.getFieldValue("heightField");
         const selected = block.getFieldValue("dropdownField");
         const mediaFile = this.state.files.find(file => file.id == selected)!!;
-        const url = `http://localhost:8080/publish/<id>/${mediaFile.id}`;
+        const url = `http://educationshokan.ddns.net:8080/publish/<id>/${mediaFile.id}`;
         switch (mediaFile.mimeType) {
             case "image/jpg":
+            case "image/png":
                 return `<img src="${url}" alt=""/>`;
             case "audio/mp3":
             case "audio/mpeg":
@@ -75,10 +76,10 @@ export default class BlockArea extends Component<BlockAreaProps, BlockAreaState>
     }
 
     async getAvailableFiles() {
-        const response = await fetch("http://localhost:8080/media");
+        const response = await fetch("http://educationshokan.ddns.net:8080/media");
         const ids: Array<String> = (await response.json() as Success).data;
         const files = await Promise.all(ids.map(async (id) => {
-            const res = await fetch(`http://localhost:8080/media/${ id }`);
+            const res = await fetch(`http://educationshokan.ddns.net:8080/media/${ id }`);
             const json = await res.json() as Success;
             return json.data as MediaFile;
         }));
@@ -111,6 +112,11 @@ export default class BlockArea extends Component<BlockAreaProps, BlockAreaState>
             const code = Blockly.HtmlGenerator.workspaceToCode(this.editor);
             console.log(code);
         }, 10000);
+    }
+
+    @boundMethod
+    generateCode(): string {
+        return Blockly.HtmlGenerator.workspaceToCode(this.editor);
     }
 
     static xmlToolbar() {

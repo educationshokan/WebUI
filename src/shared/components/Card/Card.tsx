@@ -4,7 +4,8 @@ import CardData from "../../../interfaces/CardData";
 
 interface CardProps {
     id: string,
-    action: (id: string) => Promise<CardData>
+    action: (id: string) => Promise<CardData>,
+    goTo?: (target: string) => void
 }
 
 interface CardState extends CardData { }
@@ -32,7 +33,7 @@ export default class Card extends Component<CardProps, CardState> {
 
     render(): ReactNode {
         return (
-            <div className="card">
+            <div className="card" onClick={ () => (this.props.goTo !== undefined) ? this.props.goTo!(this.state.name) : "" }>
                 <div className="card-icon"/>
                 <h4>{ this.state.name }</h4>
                 <h2>{ this.state.type }</h2>
