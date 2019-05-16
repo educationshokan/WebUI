@@ -77,10 +77,12 @@ export default class SketchWrapper extends Component<SketchWrapperProps, SketchW
 
     render(): ReactNode {
         return (
-            <div className="tool-wrapper">
-                <h1>Sketch</h1>
-                <button onClick={ this.save }>Guardar</button>
-                <button onClick={ this.goToProjects }>Cerrar</button>
+            <div>
+                <div className="tool-wrapper">
+                    <h1>Sketch</h1>
+                    <button onClick={ this.save }>Guardar</button>
+                    <button onClick={ this.goToProjects } className="red">Cerrar</button>
+                </div>
                 <SketchArea ref={ sketch => this.sketch = sketch }/>
             </div>
         );

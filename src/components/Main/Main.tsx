@@ -11,6 +11,7 @@ import PublishedProjects from "../PublishedProjects/PublishedProjects";
 import Home from "../Home/Home";
 import Challenge from "../Challenge/Challenge";
 import Inspire from "../Inspire/Inspire";
+import FooterImage from "../../shared/assets/img/horizontal-bar.jpg"
 
 
 export default class Main extends Component<{}> {
@@ -23,6 +24,7 @@ export default class Main extends Component<{}> {
         return (
             <div>
                 { Main.router() }
+                <img className="footer" src={FooterImage}/>
             </div>
         );
     }

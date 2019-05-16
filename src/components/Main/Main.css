@@ -1,3 +1,41 @@
+@font-face {
+    font-family: 'Geomanist';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../shared/assets/fonts/Geomanist-Regular.otf');
+    src: local('Geomanist')
+}
+
+@font-face {
+    font-family: 'Geomanist-Bold';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../../shared/assets/fonts/Geomanist-Ultra.otf');
+    src: local('Geomanist-Bold')
+}
+
+@font-face {
+    font-family: 'Geomanist-Light';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../../shared/assets/fonts/Geomanist-Light.otf');
+    src: local('Geomanist-Light')
+}
+
+
+body {
+    font-family: Geomanist-Regular, sans-serif;
+    margin: 0;
+}
+
+h1, h4 {
+    font-family: Geomanist-Bold, sans-serif;
+}
+
+p {
+    line-height: 1.5;
+    font-size: small;
+}
 
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,10 +52,6 @@
     }
 }
 
-span {
-    font-weight: bold;
-}
-
 .container {
     width: 100%;
     margin: 0;
@@ -30,21 +64,60 @@ span {
     align-content: flex-start;
 }
 
+.content {
+    padding: 10px 20px;
+}
+
+.cards-wrapper {
+    padding: 10px;
+}
+
+.cards-wrapper input {
+    font-size: 1em;
+    font-family: Geomanist-Bold, sans-serif;
+    border: 0;
+    border-bottom: 2px solid lightgrey;
+}
+
 .card {
-    width: calc(50% - 12px);
+    width: calc(50% - 15px);
     height: auto;
     margin-right: 10px;
     margin-bottom: 10px;
-    border: 1px solid lightgrey;
+    padding: 5px;
+}
+
+.card:nth-of-type(even) {
+    margin-right: 0;
 }
 
 .card .card-icon {
-    margin: 5px;
-    height: 70px;
+    margin: 5px 0 10px;
+    height: 150px;
+    min-width: 150px;
+    border: 5px solid black;
+    background-size: contain;
 }
 
 .card h4 {
-    margin: 5px;
+    margin: 5px 0 5px;
+    font-size: medium;
+}
+
+.card p {
+    font-family: Geomanist-Light, sans-serif;
+    font-size: small;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 105%;
 }
 
 .two-column-layout {
@@ -60,7 +133,43 @@ span {
     border: 1px solid lightgrey;
 }
 
-.wallpaper, .video {
-    height: 100px;
-    border: 1px solid lightgrey;
+button {
+    border-radius: 10px;
+    border: 5px solid #0f4eed;
+    background-color: #0f4eed;
+    color: white;
+    font-size: medium;
+    font-family: Geomanist-Bold, sans-serif;
+    padding: 5px 8px 3px;
+    cursor: pointer;
+    height: 34px;
+}
+
+button:hover {
+    border-color: #1c63f2;
+    background-color: #1c63f2;
+}
+
+button.red {
+    border-color: #ff1d25;
+    background-color: #ff1d25;
+}
+
+.tool-wrapper {
+    display: flex;
+    height: 80px;
+    padding: 10px 20px;
+}
+
+.tool-wrapper h1, .tool-wrapper button {
+    margin: auto;
+}
+
+.tool-wrapper h1 {
+    flex-grow: 3;
+}
+
+.tool-wrapper button {
+    flex-grow: 2;
+    margin-left: 5px;
 }

@@ -4,6 +4,7 @@ import CanvasArea  from "react-canvas-draw";
 import * as React from "react";
 import { boundMethod } from "autobind-decorator";
 import html2canvas from "html2canvas";
+import "./SketchArea.css";
 
 interface SketchAreaProps {
 
@@ -29,7 +30,8 @@ export default class SketchArea extends Component<SketchAreaProps, SketchAreaSta
 
     render(): ReactNode {
         return (
-            <div>
+            <div className="sketch-wrapper">
+                <p>¡Dibuja tus ideas!</p>
                 <CanvasArea id="canvasArea" ref={ canvas => this.canvasArea = canvas } lazyRadius={3}/>
             </div>
         );

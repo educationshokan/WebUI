@@ -1,0 +1,14 @@
+.video {
+    height: 270px;
+    border: 5px solid black;
+    background: url("../../shared/assets/img/challenge-inspire-video.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.video-wrapper .content {
+    text-align: center;
+}
+
+.video-wrapper button {
+    margin-top: 50px;
+}

@@ -1,0 +1,8 @@
+.sketch-wrapper {
+    padding: 0 20px;
+}
+
+.sketch-wrapper div {
+    width: auto !important;
+    border: 5px solid;
+}

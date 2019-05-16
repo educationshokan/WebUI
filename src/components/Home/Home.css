@@ -1,0 +1,21 @@
+.welcome {
+    width: auto;
+    height: 270px;
+    background: url("../../shared/assets/img/welcome.jpg") no-repeat;
+    background-size: contain;
+    display: flex;
+}
+
+.welcome h1{
+    margin: auto;
+    text-align: center;
+}
+
+.welcome h1 span {
+    background-color: white;
+}
+
+#challenge-1 .card-icon {
+    background: url("../../shared/assets/img/challenge-1.jpg") no-repeat center;
+    background-size: cover;
+}

@@ -76,7 +76,7 @@ export default class ProjectFilesWrapper extends Component<ProjectFilesWrapperPr
     render(): ReactNode {
         return (
             <div className="cards-wrapper">
-                <h1>Proyecto { this.state.name }</h1>
+                <h1><input value={ this.state.name }/></h1>
                 <TwoColumnLayout ids={ this.state.filesIds } action={ this.retrieveCardData }/>
                 <div className="actionButtons">
                     <button onClick={ this.goToSketch }>Hacer un dibujo</button>

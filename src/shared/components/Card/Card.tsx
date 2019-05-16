@@ -1,6 +1,9 @@
 import {Component, ReactNode} from "react";
 import * as React from "react";
 import CardData from "../../../interfaces/CardData";
+import projectImage from "../../assets/img/project-es.jpg";
+import drawingImage from "../../assets/img/drawing-es.jpg";
+import docImage from "../../assets/img/doc-es.jpg";
 
 interface CardProps {
     id: string,
@@ -21,7 +24,7 @@ export default class Card extends Component<CardProps, CardState> {
             name: "",
             type: "",
             desc: ""
-        }
+        };
     }
 
     async componentWillMount() {
@@ -29,14 +32,31 @@ export default class Card extends Component<CardProps, CardState> {
         const data = await action(id);
 
         this.setState(data);
+        this.setCardIcon();
+    }
+
+    setCardIcon(){
+        let icon = document.getElementById(`${this.props.id}`) as HTMLElement;
+        switch (this.state.type) {
+            case "project": {
+                icon.style.backgroundImage = `url(${projectImage})`;
+                break;
+            }
+            case "image/png": {
+                icon.style.backgroundImage = `url(${drawingImage})`;
+                break;
+            }
+            default:
+                break;
+
+        }
     }
 
     render(): ReactNode {
         return (
             <div className="card" onClick={ () => (this.props.goTo !== undefined) ? this.props.goTo!(this.state.name) : "" }>
-                <div className="card-icon"/>
+                <div id={this.props.id} className="card-icon"/>
                 <h4>{ this.state.name }</h4>
-                <h2>{ this.state.type }</h2>
                 <p>{ this.state.desc }</p>
             </div>
         );

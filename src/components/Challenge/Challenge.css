@@ -1,0 +1,6 @@
+.wallpaper {
+    height: 270px;
+    border: 5px solid black;
+    background: url("../../shared/assets/img/challenge-1.jpg") no-repeat center;
+    background-size: cover;
+}
