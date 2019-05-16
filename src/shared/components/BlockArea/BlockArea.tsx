@@ -121,6 +121,7 @@ export default class BlockArea extends Component<BlockAreaProps, BlockAreaState>
 
     static xmlToolbar() {
         return `
+        <xml>
             <id="toolbox" style="display: none">
                 <category name="Estructura">
                     <block type="Media"/>
