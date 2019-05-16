@@ -114,6 +114,11 @@ export default class BlockArea extends Component<BlockAreaProps, BlockAreaState>
         }, 10000);
     }
 
+    @boundMethod
+    generateCode(): string {
+        return Blockly.HtmlGenerator.workspaceToCode(this.editor);
+    }
+
     static xmlToolbar() {
         return `
             <xml id="toolbox" style="display: none">
